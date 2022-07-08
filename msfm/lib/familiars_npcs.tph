@@ -995,7 +995,7 @@ EXTEND_BOTTOM ~xzar.bcs~ ~msfm/bcs/bg1_famnpcs/rgfnxzax.baf~
 
 END
 
-ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 
 STRING_SET ~8538~ @701
 
@@ -1227,5 +1227,82 @@ EXTEND_BOTTOM ~neer25.bcs~ ~msfm/bcs/bg2_famnpcs/rgfnneey.baf~
 
 COPY_EXISTING ~yoshimo.bcs~ ~override~
 EXTEND_BOTTOM ~yoshimo.bcs~ ~msfm/bcs/bg2_famnpcs/rgfnyosx.baf~
+
+END
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+
+  // 224383 = EET String ref for "Only the protagonist may cast Find Familiar."
+STRING_SET ~224383~ @701
+
+// EET keeps BG2 references as is
+COPY ~msfm/content/bg2_familnpcs/rgfnedw.itm~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+  SAY UNIDENTIFIED_DESC @822
+  SAY DESC @822
+  
+COPY ~msfm/content/bg2_familnpcs/rgfnedw1.itm~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+  SAY UNIDENTIFIED_DESC @823
+  SAY DESC @823
+
+// Need a modified item for EET BG1 (Ensure item file reference the conventions used below)
+COPY ~msfm/content/eet_familnpcs/rgfnedw2.itm~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+  SAY UNIDENTIFIED_DESC @838
+  SAY DESC @838
+
+// Need a modified item for EET SoD (Ensure item files reference the conventions used below) (keep stats same as bg1?)
+COPY ~msfm/content/eet_familnpcs/rgfnedw3.itm~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+  SAY UNIDENTIFIED_DESC @838
+  SAY DESC @838
+
+// EET keeps BG2 references as is
+COPY ~msfm/content/bg2_familnpcs/rgfnedw.cre~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+
+COPY ~msfm/content/bg2_familnpcs/rgfnedw1.cre~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+
+// Need a modified creature for EET BG1 (Ensure creature files reference the conventions used below)
+COPY ~msfm/content/eet_familnpcs/rgfnedw2.cre~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+
+// Need a modified creature for EET SoD (Ensure creature files reference the conventions used below) (keep stats same as bg1?)
+COPY ~msfm/content/eet_familnpcs/rgfnedw3.cre~ ~override~
+  SAY NAME1 @736
+  SAY NAME2 @736
+
+// EET BG2 dialog should work as is
+COMPILE ~msfm/dialog/bg2_famnpc~
+
+// Need to add modified dialog for EET BG1 and SoD refs
+COMPILE ~msfm/dialog/eet_famnpc~
+
+// BG1: rgfnedw2.baf, SoD: rgfnedw3.baf, BG2: rgfnedw.baf, ToB: rgfnedw1.baf
+COMPILE ~msfm/bcs/bg2_famnpcs/rgfnedw.baf~
+COMPILE ~msfm/bcs/bg2_famnpcs/rgfnedw1.baf~
+COMPILE ~msfm/bcs/eet_famnpcs/rgfnedw2.baf~
+COMPILE ~msfm/bcs/eet_famnpcs/rgfnedw3.baf~
+
+// EET uses a differently named "edwin_.bcs" file for EET BG1 Edwin that it has already copied to override
+EXTEND_BOTTOM ~edwin_.bcs~ ~msfm/bcs/eet_famnpcs/rgfnedww.baf~
+
+// EET uses a differently named "bdedwin.bcs" file for EET SoD Edwin that it has already copied to override
+EXTEND_BOTTOM ~bdedwin.bcs~ ~msfm/bcs/eet_famnpcs/rgfnedwz.baf~
+
+COPY_EXISTING ~edwin.bcs~ ~override~
+EXTEND_BOTTOM ~edwin.bcs~ ~msfm/bcs/bg2_famnpcs/rgfnedwx.baf~
+
+COPY_EXISTING ~edwi25.bcs~ ~override~
+EXTEND_BOTTOM ~edwi25.bcs~ ~msfm/bcs/bg2_famnpcs/rgfnedwy.baf~
 
 END
