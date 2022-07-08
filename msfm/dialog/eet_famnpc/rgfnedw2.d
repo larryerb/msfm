@@ -1,4 +1,4 @@
-BEGIN ~RGFNEDW~
+BEGIN ~RGFNEDW2~
 	
 
 	IF ~!Name("Edwin",LastTalkedToBy)~ THEN
@@ -12,12 +12,12 @@ BEGIN ~RGFNEDW~
 
 
 	CHAIN
-	IF ~Name("Edwin",LastTalkedToBy)~ THEN RGFNEDW RG01
+	IF ~Name("Edwin",LastTalkedToBy)~ THEN RGFNEDW2 RG01
 	@707
 	DO ~~
 		== EDWINJ_
 		@708
-		== RGFNEDW
+		== RGFNEDW2
 		@709
 	DO ~GivePartyAllEquipment() GiveItemCreate("RGFNEDW2",LastTalkedToBy,0,0,0) DestroySelf()~
 	EXIT

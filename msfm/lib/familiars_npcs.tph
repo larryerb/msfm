@@ -1232,8 +1232,7 @@ END
 
 ACTION_IF GAME_IS ~eet~ THEN BEGIN
 
-  // 224383 = EET String ref for "Only the protagonist may cast Find Familiar."
-STRING_SET ~224383~ @701
+STRING_SET ~8538~ @701
 
 // EET keeps BG2 references as is
 COPY ~msfm/content/bg2_familnpcs/rgfnedw.itm~ ~override~
